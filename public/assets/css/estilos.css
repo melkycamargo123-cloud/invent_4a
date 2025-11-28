@@ -1,0 +1,71 @@
+:root{
+  --sidebar-width: 250px;
+}
+
+/* ===== Sidebar base (ya lo tenías) ===== */
+.sidebar{
+  position: fixed;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: #fff;
+  overflow-y: auto;
+  transform: translateX(0);
+  transition: transform .2s ease;
+  z-index: 1030;
+}
+@media (max-width: 991.98px){
+  .sidebar{ transform: translateX(-100%); }
+  .sidebar.show{ transform: translateX(0); }
+}
+
+.main{ margin-top:56px; margin-left:var(--sidebar-width); padding:1rem; }
+@media (max-width: 991.98px){ .main{ margin-left:0; } }
+
+/* ===== Modo oscuro del sidebar ===== */
+.sidebar-dark{
+  --sb-bg: #111827;         /* gris muy oscuro */
+  --sb-bg-hover: #1f2937;   /* hover */
+  --sb-text: #e5e7eb;       /* texto principal */
+  --sb-muted: #9ca3af;      /* etiquetas/secciones */
+  --sb-active: #2563eb;     /* azul activo */
+  background: var(--sb-bg) !important;
+  border-right: 1px solid rgba(255,255,255,.08) !important;
+}
+.sidebar-dark .badge{
+  background: rgba(37,99,235,.15) !important;
+  color: #bfdbfe !important;
+  border: 1px solid rgba(37,99,235,.35);
+}
+.sidebar-dark .list-group-item{
+  background: transparent;
+  color: var(--sb-text);
+  border: 0;
+}
+.sidebar-dark .list-group-item.small,
+.sidebar-dark .list-group-item.fw-semibold{
+  color: var(--sb-muted);
+  letter-spacing: .04em;
+}
+.sidebar-dark .list-group-item-action:hover{
+  background: var(--sb-bg-hover);
+  color: #fff;
+}
+.sidebar-dark .list-group-item-action i{
+  opacity: .9;
+}
+.sidebar-dark .list-group-item.active,
+.sidebar-dark .list-group-item[aria-current="page"]{
+  background: rgba(37,99,235,.15);
+  color: #fff;
+  border-left: 3px solid var(--sb-active);
+}
+
+/* Scrollbar discreto en el sidebar (opcional) */
+.sidebar-dark::-webkit-scrollbar{ width: 8px; }
+.sidebar-dark::-webkit-scrollbar-thumb{ background: #374151; border-radius: 8px; }
+.sidebar-dark::-webkit-scrollbar-track{ background: transparent; }
+
+/* KPI cards (ya definidas) */
+.card-kpi .display-6{ line-height:1; }
